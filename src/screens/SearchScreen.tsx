@@ -11,15 +11,23 @@ import {
   Image,
   ScrollView,
   Pressable,
+  Button,
+  TouchableOpacity,
 } from "react-native";
 import useNewsSearch from "../hooks/useNewsSearch";
 import ArticleCard from "../components/ArticleCard";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function SearchScreen() {
+
+
+export default function SearchScreen({ navigation }) {
+
+  const logout = async () => {
+    await AsyncStorage.clear();
+    navigation.replace("Login");
+  };
   const { query, setQuery, articles, loading, error } = useNewsSearch();
-
   const [selected, setSelected] = useState(null);
-
   const closeModal = () => setSelected(null);
 
   const fallbackImages = [
@@ -30,8 +38,24 @@ export default function SearchScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-
-      <Text style={styles.header}>Discover News</Text>
+      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+        <Text style={styles.header}>Discover News</Text>
+        <TouchableOpacity
+          onPress={logout}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: 25,
+            backgroundColor: '#fff',
+            justifyContent: 'center',
+            alignItems: 'center',
+            elevation: 4,
+            shadowColor: '#000',
+          }}
+        >
+          <Text style={{ color: '#8E2DE2', fontWeight: 'bold', fontSize:12 }}>Logout</Text>
+        </TouchableOpacity>
+      </View>
 
       <TextInput
         value={query}

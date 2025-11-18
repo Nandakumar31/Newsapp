@@ -1,14 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import SearchScreen from './src/screens/SearchScreen'
+import React from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './src/navigator/AppNavigation';
 
-const App = () => {
+
+export default function App() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <SearchScreen />
-    </SafeAreaView>
-  )
+    <NavigationContainer>
+      <SafeAreaView style={{ flex: 1 }}>
+        <AppNavigator />
+      </SafeAreaView>
+    </NavigationContainer>
+  );
 }
-
-export default App
