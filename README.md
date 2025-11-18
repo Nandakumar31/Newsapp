@@ -26,7 +26,9 @@ Results are saved in AsyncStorage
     If offline → app loads cached results
     Shows “Offline — showing cached results”
 
-RunApp
+How to Run the App
+    git clone https://github.com/Nandakumar31/Newsapp.git
+    cd Newsapp
 
 npm install
 
@@ -47,6 +49,9 @@ npm run android
 yarn android
 
 ✔️ App is Ready!
+
+
+
 
 Authentication Flow (Login + OTP)
     The app includes a simple and secure authentication flow using phone number login and 4-digit OTP verification.
