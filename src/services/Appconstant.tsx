@@ -1,0 +1,3 @@
+export const NEWS_API_KEY = '022050a1e0a541b8bbab2c27d7d777bf';
+
+export const GNEWS_API_KEY ='28378e954bb409f9c392011745738c4f';
